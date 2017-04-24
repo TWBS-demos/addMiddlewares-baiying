@@ -6,19 +6,25 @@ class Parent extends React.Component {
     add() {
         const name = this.refs.name.value;
         const age = this.refs.age.value;
-        if(name&&age){
-            this.props.onAdd(name,age)
+        if (name && age) {
+            this.props.onAdd(name, age)
         }
-        else{
+        else {
             alert("请输入姓名和年龄")
         }
     }
 
     render() {
+        const person = this.props.person.map((person,index)=> {
+            return <div key={index}>
+                <li>name:{person.name}  age:{person.age}</li>
+            </div>
+        })
         return <div>
-            name:<input type="text" ref = "name"/>
-            age:<input type="text" ref = "age"/>
+            name:<input type="text" ref="name"/>
+            age:<input type="text" ref="age"/>
             <button onClick={this.add.bind(this)}>添加用户</button>
+            {person}
             <Link to="/child">child</Link>
         </div>;
     }

@@ -3,8 +3,7 @@ import Parent from '../components/Parent'
 
 const mapStateToProps = (state)=>{
     return {
-        name:state.Parent.name,
-        age:state.Parent.age
+        person:state.Parent
     }
 }
 
